@@ -1,0 +1,98 @@
+/* video-hero block - high quality cinematic hero matching da-cli reference sites */
+
+.video-hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: white;
+  background: #000;
+}
+
+.video-hero video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.85;
+}
+
+.video-hero .video-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.55));
+  border-radius: 8px;
+}
+
+.video-hero h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin: 0 0 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.video-hero p {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin: 0 0 1.5rem;
+  opacity: 0.95;
+}
+
+.video-hero .button-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.video-hero .button-container a {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.video-hero .button-container a:first-child {
+  background: #fff;
+  color: #000;
+}
+
+.video-hero .button-container a:first-child:hover {
+  background: #eee;
+  transform: translateY(-1px);
+}
+
+.video-hero .button-container a:last-child {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.6);
+}
+
+.video-hero .button-container a:last-child:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .video-hero {
+    min-height: 60vh;
+  }
+  .video-hero h1 {
+    font-size: 2.25rem;
+  }
+  .video-hero p {
+    font-size: 1.1rem;
+  }
+}
