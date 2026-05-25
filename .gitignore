@@ -11,3 +11,17 @@ helix-importer-ui
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
+
+# Local da-cli tooling
+.da.json
+
+# Authoring working files (real source of truth lives in DA)
+drafts/
+
+# Media assets (uploaded to DA content, not code repo)
+media/
+
+# OS / editor noise
+.DS_Store
+*.swp
+*.swo
