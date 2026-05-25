@@ -1,0 +1,26 @@
+name: grok-eds-validate
+description: Deterministic validation pipeline for grok-eds. Focuses on video-hero contract + overall page quality using 0.3.0 primitives.
+steps:
+  - id: quality
+    command: pipeline quality-gate /index.html --min-score 80 --format json
+    description: Score the homepage using DA audit + design rules
+
+  - id: preview
+    command: preview page /index --format json
+    depends_on: [quality]
+    description: Trigger preview pipeline
+
+  - id: explain-video-hero
+    command: preview explain /index --format json
+    depends_on: [preview]
+    description: Specifically validate that video-hero contract survives decoration (core feature of this site)
+
+  - id: audit-blocks
+    command: audit blocks /index --format json
+    depends_on: [explain-video-hero]
+    description: Check block structure compliance on the main page
+
+  - id: contracts
+    command: audit contracts --format md
+    depends_on: [audit-blocks]
+    description: Surface all known block contracts currently in use across the project
